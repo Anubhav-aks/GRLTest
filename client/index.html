@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="description" content="Engage Digital Demo App" />
+  <meta name="viewport" content="width=device-width, user-scalable=yes, initial-scale=1, maximum-scale=1" />
+  <meta name="mobile-web-app-capable" content="yes" />
+  <meta id="theme-color" name="theme-color" content="#ffffff" />
+
+  <base target="_blank" />
+
+  <title>GRL Application</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap-theme.min.css">
+  <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+
+  <link rel="stylesheet" href="main.css" />
+</head>
+
+<body class="maincontainer">
+  <div id="container">
+    <div style="margin-top: 15px">
+      <h2 class="text" style="color: rgb(19, 69, 179);">GRL Demo Application</h2>
+    </div>
+    <div style="text-align: center;color: aliceblue;" id="status"></div>
+    <div class="box">
+     <div id="login">
+      <span class="fieldName" style="color: aliceblue;">User Id : </span>
+      <input class="textfield" type="text" id="userIdentity" size="50" value="bob" />
+      <br />
+      <span class="fieldName" style="color: aliceblue;display:none;">Domain : </span>
+      <input style="margin-left: 0.8em;display:none" class="textfield" type="text" id="engageDomain" size="50"
+        placeholder="rtc.radisys.com" value="rtc.engagedigital.ai" />
+      <br />
+      <p style="color: rgb(60, 122, 229);">* Do not provide any special characters or space</p>
+      <br />
+     </div>
+      
+      <button id="connectBtn" >Connect</button>
+      <button id="disconnectBtn" disabled>Disconnect</button>
+      <p />
+      <div id="sipIdentity" style="font-size: 14px;margin: 0px;padding: 0px;color: aliceblue;"></div>
+    </div>
+    <div id="videoContainerhide" class="videoContainer">
+   
+      <div class="innervideo">
+        <video id="remoteVideo" playsinline autoplay></video>
+      </div>
+    </div>
+    <div class="videoContainer">
+    <div style="height: 100px; width: 120; justify-content: center;align-items: center;" >
+      <div class="watermark1" style="color: aliceblue;">Local Video</div><video id="localVideo" playsinline autoplay muted></video>
+    </div>
+    </div>
+    <div id="subbox" class="subbox">
+      <span class="fieldName">Room's Name:</span><input class="textfield" type="text" id="callTo"
+        size="50" placeholder="eg: +919090909090, 18000001234, +14155552671" value="conf:" />
+      <button id="makeCallBtn" disabled>Join Room</button>
+      <button id="screenShareBtnId"></button>
+      <button id="audio">Mute</button>
+      <button id="video">Mute Video</button>
+      <button id="endCallBtn" style="background-color: brown;color: aliceblue;" disabled>Leave Meeting</button>
+    </div>
+  </div>
+  <div id="incomingCallDialog" class="modal fade">
+    <div class="modal-dialog">
+      <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h4 id="acceptOrReject" class="modal-title">Incoming Call</h4>
+          </div>
+          <div class="modal-body">
+            <p id="lblMsgConfirmYesNo"></p>
+          </div>
+          <div class="modal-footer">
+            <button id="acceptCallBtn" type="button" class="btn btn-primary">Yes</button>
+            <button id="rejectCallBtn" type="button" class="btn btn-default">No</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script src="main.js"></script>
+
+</body>
+
+</html>
